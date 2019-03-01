@@ -1,1 +1,17 @@
-Nascimento
+private static final String driverClassName = "org.apache.derby.jdbc.ClientDriver";
+private static final String url = "jdbc:derby://localhost:1527/cadastro";
+private static final String dbUsername = "admin";
+private static final String dbPassword = "admin";
+private static Connection connection = null;
+
+static {
+
+	try {
+		Class.forName(driverClassName);
+		connection = DriverManager.getConnection(url, dbUsername, dbPassword);
+	}catch (ClassNotFoundException e){
+		e.printStackTrace();
+	}catch (SQLException e){
+		e.printStackTrace();
+	}
+}
